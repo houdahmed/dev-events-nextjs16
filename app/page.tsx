@@ -3,8 +3,6 @@ import ExploreBtn from "@/components/ExploreBtn";
 import events from "@/lib/constants";
 import { title } from "process";
 
-
-
 const page = () => {
   return (
     <section>
