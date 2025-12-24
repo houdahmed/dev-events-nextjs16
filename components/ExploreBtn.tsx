@@ -4,34 +4,27 @@ import Image from "next/image";
 import posthog from "posthog-js";
 
 const ExploreBtn = () => {
+  const handleClick = () => {
+    posthog.capture("explore_events_clicked");
+  };
+
   return (
-    <>
-      <button
-        type="button"
+    <div className="flex justify-center">
+      <a
+        href="#events"
         id="explore-btn"
-        className="mt-7 mx-auto"
-        onClick={() => console.log("CLICK")}
+        className="mt-7 mx-auto inline-flex items-center gap-2"
+        onClick={handleClick}
       >
-        <a href="#events">
-          Explore Events
-          <Image
-            src="/icons/arrow-down.svg"
-            alt="arrow-down"
-            width={24}
-            height={24}
-          />
-        </a>
-      </button>
-      <button
-        onClick={() =>
-          posthog.capture("button_clicked", {
-            page: "home",
-          })
-        }
-      >
-        Click me
-      </button>
-    </>
+        Explore Events
+        <Image
+          src="/icons/arrow-down.svg"
+          alt="arrow-down"
+          width={24}
+          height={24}
+        />
+      </a>
+    </div>
   );
 };
 
